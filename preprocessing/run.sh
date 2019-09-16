@@ -1,7 +1,6 @@
 #!/bin/bash
 
-## Objetive: Pre-processing of input data
-## For example: $0 /tmp/input /tmp/output /tmp/metadata
+## This script pre-processes the data downloaded by the InputDownload phase
 
 ## Checking args
 if [ $# -ne 3 ]
@@ -10,16 +9,10 @@ then
   exit 1
 fi
 
-## Capture args
+## args
 INPUT_DIR_PATH=$1
 OUTPUT_DIR_PATH=$2
 METADATA_DIR_PATH=$3
 
-
-
-
-
 ## Exit code
-# This script should have the following return pattern:
-# - `0` represents a successful execution.
-# And any other exit code will be considered failed.
+# exit code `0` indicates a successful execution. Any other number indicates failure. 
