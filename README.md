@@ -1,4 +1,4 @@
-# SAPS development tutorial
+# SAPS scripts development tutorial
 This tutorial explains how to develop new algorithms for the SEB Automated Processing Service (SAPS). The SAPS calculates evapotranspiration in a workflow with three stages: 1) **Input Downloading**; 2) **Preprocessing**, and 3) **Processing**.
  
 In the first stage, **Input Downloading**, the Landsat satellite imagery is downloaded to the SAPS processing infrastructure. Any other data, including meteorological information, used in the next steps, are downloaded by the algorithms implemented in this first stage.
@@ -11,10 +11,9 @@ SAPS supports multiple algorithms to any of these stages. There is no restrictio
 
 In practice, this contract means that, any implementation should be wrapped by a bash script that has a predefined name,  `run.sh`. This script should be invoked with four parameters: the path to the root directory of the tree where input and output files for the workflow are stored, the Landsat dataset descriptor, which indicates which Landsat satellite should be used (5, 7 or 8),  the Landsat scene of interest, and the date of interest.
 
-As part of the contract, the `run.sh` program should only exit with code *0* in case of successful execution. Regarding the input and output data, it has a pre-defined structure, thus any program knows where to find input data and where to store output data. The structure of the tree is shown below:
+As part of the contract, the `run.sh` program should only exit with code *0* in case of successful execution. Regarding the input and output data, it has a pre-defined structure, thus any program knows where to find input data and where to store output data. The structure of the tree is shown below (considering `$task_id` as root directory):
 
 ```
-.
 +-- $task_id
 |   +-- inputdownloading
 |   +-- preprocessing
